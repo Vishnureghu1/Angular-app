@@ -1,0 +1,34 @@
+<center>
+  <h1>create category</h1>
+    <div class="row">    
+      <form method="POST" action="/admin/createcategory" enctype="multipart/form-data">
+        categoryname: <br><input type="text" required name="categoryname" >
+          <br>                
+          
+          Image:  <br>   <input type="file" name="image" required  >
+           
+          <br>
+          <button style="background-color: green;color: white;">Add</button>
+      </form>
+    </div>
+    </center>
+<br>
+<br>
+
+    <center>
+      <h1>update category</h1>
+      <div class="row">    
+        <form method="POST" action="/admin/updatecategory" enctype="multipart/form-data">
+          cId:
+          <br><input type="text" required name="cId" >
+            <br>                
+          categoryname: <br><input type="text"  name="categoryname" >
+            <br>                
+            
+            Image:  <br>   <input type="file" name="image"   >
+             
+            <br>
+            <button style="background-color: green;color: white;">Add</button>
+        </form>
+      </div>
+      </center>

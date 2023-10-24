@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+.full{
+  display: block;
+    margin-left: auto;
+    margin-right: auto; 
+    font-size:12px;   
+    position: relative;
+    background-color: whitesmoke; 
+    padding-top: 20px;
+    box-shadow: 0 0 5px gray;
+    padding-bottom: 20px;
+     top:30px;
+     width: 100%;
+   font-family: "Poppins"; 
+   border-radius: 10px;
+    
+}
+
+.grid-container-element { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-gap: 55vw; 
+    width: 50%; 
+} 
+.grid-child-element { 
+    margin: 10px; 
+}
+thead{
+    color:#337AB7
+}
+.add1{
+    display: flex;
+    
+}
+.add1 {
+    font-size: 22px;
+    letter-spacing: 2px;
+    padding-bottom:5px;
+    padding-top: 5px;
+    font-family: "Poppins"; 
+    
+    /* padding-left: 17vw; */
+   
+}
+table{    
+   
+    padding-top: 2vw;
+   box-shadow: none;
+    border-radius: 10px;
+}
+thead {   
+    width: 100%; /* - 17px because of the scrollbar width */
+  }
+  
+  tbody {
+    width: 100%;
+    padding-bottom: 20px;
+    max-width: 100vw;
+    text-shadow: none;
+   
+}
+  th{   
+      width:300px;     
+  }
+  td{    
+      width:300px;
+  }
+  img{
+    border: 1px solid rgb(209, 204, 204);
+  }
+  @media
+	  only screen 
+    and (max-width: 760px), (min-device-width: 768px) 
+    and (max-device-width: 1024px)  {
+
+		/* Force table to not be like tables anymore */
+		table, thead, tbody, th, td, tr {
+			display: block;
+		}
+
+		/* Hide table headers (but not display: none;, for accessibility) */
+		thead tr {
+			position: absolute;
+			top: -9999px;
+			left: -9999px;
+		}
+
+    tr {
+      margin: 0 0 1rem 0;
+    }
+      
+    tr:nth-child(odd) {
+      background: #ccc;
+    }
+    
+		td {
+			/* Behave  like a "row" */
+			border: none;
+			border-bottom: 1px solid #eee;
+			position: relative;
+			padding-left: 50%;
+		}
+
+		td:before {
+			/* Now like a table header */
+			position: absolute;
+			/* Top/left values mimic padding */
+			top: 0;
+			left: 6px;
+			width: 45%;
+			padding-right: 10px;
+			white-space: nowrap;
+		}
+
+		/*
+		Label the data
+    You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
+		*/
+		td:nth-of-type(1):before { content: "Image"; }
+		td:nth-of-type(2):before { content: "Product"; }
+		td:nth-of-type(3):before { content: "Qr/Barcode"; }
+		td:nth-of-type(4):before { content: "Category"; }
+		td:nth-of-type(5):before { content: "Actions"; }
+		.head{
+      position: relative;   
+    }
+    .search{
+      position: relative;
+      right: 50px;  
+    
+    }
+	}
+  
+  @media screen and (min-width: 1025px) {
+  .zoom {
+   
+    background-image: url("http://164.90.151.32:3000/{{product.image}}");
+    transition: transform .2s; /* Animation */   
+    margin: 0 auto;
+  }
+  
+  .zoom:hover {
+    transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  td:nth-child(1)  {padding-left: 70px }
+  td:nth-child(2)  {padding-left: 4vw }
+  td:nth-child(3)  {padding-left: 5vw }
+  td:nth-child(4)  {padding-left: 6vw }
+  td:nth-child(5)  {text-align: right; padding-right: 70px;  }
+  th:nth-child(1)  {padding-left: 70px }
+  th:nth-child(2)  {padding-left: 4vw }
+  th:nth-child(3)  {padding-left: 5vw }
+  th:nth-child(4)  {padding-left: 6vw }
+  th:nth-child(5)  {text-align: right; padding-right: 70px; }  
+ th{border-bottom: 1px rgb(199, 189, 189) solid;}
+  .add1{
+    padding-left: 70px;
+  }
+  .head{
+    position: absolute;   
+  }
+  .search{
+    position: absolute;
+    right: 50px;  
+  }
+  .filterright{
+  margin-right: 20px;
+  }
+  }
+
+  
+  button{
+    border-radius: 5px;
+    font-size:12px;
+    border:none;
+  }
+  select{
+    border: 1px solid rgb(226, 223, 223);
+  }

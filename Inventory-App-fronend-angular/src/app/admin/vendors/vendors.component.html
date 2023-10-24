@@ -1,0 +1,66 @@
+<app-header></app-header>
+<router-outlet></router-outlet>
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"> -->
+<section class="content-wrapper" style="height: fit-content;">
+<div class="  fullone col-lg-11 col-xl-11 col-md-12 col- sm-12 col-12">
+  <div class=' full container'>
+    <div class=''>
+      <div class="add1">
+        <h1 style="padding-top: 20px;">Vendors</h1>
+      </div>
+
+    </div>
+
+    <div class=''>
+      <div class='table-responsive'>
+        <table class=' bg-pic' *ngIf='vendors && vendors.length'>
+          <thead>
+            <tr>
+              <th>
+                Vendor
+              </th>
+              <th >Address Line1</th>
+              <th >Address Line2</th>
+              <th >Town</th>
+              <th >Post Code</th>
+              <th >Phone Number</th>
+              <th >Emailid</th>
+              <th >Country</th>
+              <th >Contact Person </th>
+              <th>Actions</th>
+            </tr>
+
+          </thead>
+          <tbody>
+            <tr *ngFor='let vendor of vendors'>
+              <td>{{vendor.vendor }} </td>
+              <td>{{ vendor.line1 }}</td>
+              <td>{{ vendor.line2 ? vendor.line2 :"NIL" }}</td>
+              <td>{{ vendor.town }}</td>
+              <td>{{ vendor.postcode }}</td>
+              <td>{{ vendor.phonenumber }}</td>
+              <td >{{ vendor.emailid}}</td>
+              <td>{{ vendor.country }}</td>
+              <td>{{ vendor.contactperson }}</td>
+
+              <td>
+                <!-- <a href = "/admindashboard/addvendor"><i class="fas fa-plus" style="color:green"></i></a>
+                              <span style="padding: 0.3em;"></span> -->
+                <a href="/admindashboard/updatevendor" (click)="editvendor(vendor)"><i class="fas fa-edit"></i></a>
+                <span style="padding: 0.3em;"></span>
+                <a href="/admindashboard/vendors" (click)="deletevendor(vendor)"><i class="fas fa-trash" style="color:red"></i></a>
+              </td>
+              <!-- <td>
+                    <button class="btn btn-warning" style="cursor:pointer" *ngIf="_auth.loggedIn()" (click)="editvendor(vendor)" style="margin-left: 20px;"> Edit</button>
+                  </td>
+                  <td>
+                    <button class="btn btn-danger" style="cursor:pointer" *ngIf="_auth.loggedIn()" (click)="deletevendor(vendor)"> Delete</button>
+                  </td> -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</section>

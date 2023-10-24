@@ -1,0 +1,192 @@
+<app-header></app-header>
+<section class=" background content-wrapper">
+  <div class="container newfull">
+    <div class="add1">
+      <h1 >
+        Stock In 
+      </h1>
+    </div>
+
+    <form (ngSubmit)="addstockin()" class="form" #subform="ngForm">
+      <div class="row">
+        <div class="six columns padright">
+          <label for="">Invoice Number</label>
+          <input type="number" required class="u-full-width" name="invoice1" id="invoice1" 
+            value={{randomnumber}} [(ngModel)]="stockin.Invoiceno" class="form-control">
+        </div>
+
+        <div class="six columns padright">
+          <label for="">Date</label>
+          <input type="date" style="color: #999393;" (change)=checkDate() required class="u-full-width" name="date"
+            id="date"  [(ngModel)]="stockin.newdate" class="form-control">
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="twelve columns padright">
+          <label for="">Select Vendor (optional)</label>
+          <select [(ngModel)]=" stockin.vendor" class="form-control selectone" name="vendor1" id="vendor1">
+            <!-- <option [ngValue]="undefined" disabled selected>Select Vendor (optional)  </option> -->
+            <option *ngFor='let i of vendors' [ngValue]="i.vendor">{{i.vendor}} <span>,</span>
+              {{i.line1}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+
+
+    </form>
+
+    <div class="newform">
+
+      <div class="add1">
+        <h1>
+          Product Details
+        </h1>
+      </div>
+
+
+      <div>
+
+        <!-- Form that gets user input -->
+        <form class="form" #myform="ngForm">
+          <div class="form-group">
+            <div class="row">
+              <div class="six columns padright">
+                <label for="">Qr/Barcode</label>
+                <input type="number" (keyup.enter)="somefunction($event)" id="barcodeorqrcode" placeholder="Scan or type and press enter" name="barcodeorqrcode"
+                  required [(ngModel)]="newItem.barcodeorqrcode" required
+                   class="form-control">
+
+              </div>
+              <div class="six columns padright">
+                <label for="">Product Name</label>
+                <input type="string" id="productname" name="productname" value={{neprod.productname}}
+                  [(ngModel)]="newItem.productname"  class="form-control" readonly>
+              </div>
+
+            </div>
+
+            <div class="row">
+              <div class="six columns padright">
+                <label for="">Category Name</label>
+                <input type="string" id="Value" name="Value" readonly value={{neprod.categoryname}} [(ngModel)]="newItem.categoryname"
+                   class="form-control">
+              </div>
+
+              <div class="six columns padright">
+                <label for="">Enter the Quantity</label>
+                <input id="qty" type="number" class="u-full-width" name="qty" required [(ngModel)]="newItem.qty"
+                  minlength="1"  class="form-control">
+
+              </div>
+              <!-- <div class="four columns padright"> -->
+                <!-- <label for="">Enter the Quantity of each unit</label> -->
+                <!-- <input id="qty" type="number" class="u-full-width" name="qty" required [(ngModel)]="newItem.qtyInAttribute" -->
+                  <!-- minlength="1"  class="form-control"> -->
+
+              <!-- </div> -->
+              <!-- <div class="two columns padright"> -->
+                <!-- <label for="">Attribute</label> -->
+                <!-- <select [(ngModel)]=" newItem.attribute" class="form-control selectone" name="attribute" id="attribute"> -->
+                  <!-- <option [ngValue]="undefined" disabled selected>Select Vendor (optional)  </option> -->
+                  <!-- <option *ngFor='let i of attributes' [ngValue]="i.attribute">{{i.attribute}}                      -->
+                  <!-- </option> -->
+                <!-- </select> -->
+              <!-- </div> -->
+              <div class="six columns padright">
+                <label for="">Expiry Date</label>
+                <input type="date" style="color: #999393;" (change)=checkexpDate() class="u-full-width" name="date"
+                  id="expdate"  [(ngModel)]="newItem.expdate" class="form-control">
+              </div>
+            </div>
+            <div class="btr">
+              <!-- Add button to add record -->
+              <button type="submit" [disabled]="myform.form.invalid || IsForUpdate == true" (click)="AddItem()"
+                class="btn-primary btn-sm partbut " style="position:absolute;right:0;">Add</button>
+              <!-- Update button to submit updated value -->
+              <button type="submit" (click)="UpdateItem()" [disabled]="IsForUpdate == false"
+                class="btn-primary btn-sm partbut " style="position:absolute;right:60px;">Update</button>
+            </div>
+          </div>
+        </form>
+      </div>
+     
+      
+
+    </div>
+
+
+    <div class=" fullone">
+
+      <div>
+        <div>
+          <div class="add1">
+            <h1>Products</h1>
+          </div>
+        </div>
+
+        <div>
+          <div class='table-responsive fulltable'>
+            <table>
+              <thead>
+                <tr>
+                  <th>
+                    Product
+                  </th>
+                  <th>Barcode/Qrcode</th>
+                  <th>Category</th>
+                  <th>Quantity</th>
+                  <th>Actions</th>
+                </tr>
+
+              </thead>
+              <tbody>
+                <tr *ngFor='let data of myItems;let i= index'>
+                  <td>{{data.productname}} </td>
+                  <td> {{data.barcodeorqrcode}} </td>
+                  <td> {{data.categoryname}} </td>
+                  <td> {{data.qty}} </td>
+                  <td>
+                    <button class="btn-sm" (click)="EditItem(i)" style="border:none; margin-right: 2px;">
+                      <span class="fas fa-edit" style="color: #007bff"></span>
+                    </button>
+                    <button class="btn-sm" (click)="DeleteItem(i)" style="border:none">
+                      <span class="fas fa-trash" style="color:red"></span>
+                    </button>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- This is panel footer -->
+    <!-- This is panel footer -->
+
+    <form (ngSubmit)="addstockin()">
+      <div class="subforbut1">
+        <button type="submit" [disabled]="subform.form.invalid || myItems.length==0" name="submit"
+          class="btn-primary btn-sm" style="height: fit-content; font-size: small; font-weight: lighter;" id="">Submit</button>
+      </div>
+    </form>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- This is panel Body -->
+<!-- <div class="panel-body" style="text-align: -webkit-center;">   -->
+<!-- <div *ngFor="let data of myItems;let i= index" class="alert alert-info" style="width: 50%;">   -->

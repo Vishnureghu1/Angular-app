@@ -1,0 +1,57 @@
+<app-header></app-header>
+<head>
+    <!-- <link href="/assets/css/corporate.css" rel="stylesheet"> -->
+</head>
+<section class="background content-wrapper">
+    <div class="fullcontentonly">
+<div class="container add1">
+    <h1>
+        Add Category
+    </h1>
+</div>
+<div class="container">
+
+    <form class="form" (ngSubmit)="Addcategory()" #myform="ngForm" method="POST">
+        <div class="form-group">
+        <!-- First row -->
+        <div class="row" >
+            <div class="twelve columns padright">
+                <label>
+                    Category Name
+                </label>
+                <input  class="u-full-width"  class="form-control" required  type="text"  name="name" 
+                     value="" [(ngModel)]="categoryItem.categoryname" minlength="1" />
+            </div>
+          
+        </div>
+        <!-- Second row -->
+      
+   
+
+        <div class="row" >
+            <div class="twelve columns padright">
+                <label >
+                    Image
+                </label>
+               <input   type="file" name="image"  required (change)="createFormData($event)"
+                     value="" />
+            
+                    </div>
+        </div>
+
+        
+        
+       
+        <div class="partensfor" style="  margin-bottom:6%;">
+            <button style="color: white;" class="btn-primary btn-sm partbut" type="submit" 
+            [disabled]="myform.form.invalid" >Submit</button>
+        </div>
+       
+    </div>
+    
+    </form>
+</div>
+</div>
+</section>
+
+

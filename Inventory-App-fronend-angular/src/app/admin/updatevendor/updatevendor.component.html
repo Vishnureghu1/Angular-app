@@ -1,0 +1,137 @@
+<app-header></app-header>
+
+<head>
+    <!-- <link href="/assets/css/corporate.css" rel="stylesheet"> -->
+</head>
+<section class="background content-wrapper">
+    <div class="fullcontentonly">
+        <div class="add1">
+            <h1>
+                Update Vendor
+            </h1>
+        </div>
+        <div class="container">
+
+            <form class="form" (ngSubmit)="updatevendor()" #myform="ngForm" method="POST">
+                <div class="form-group">
+                    <!-- First row -->
+                    <div class="row">
+                        <div class="six columns padright">
+                            <label>
+                                Vendor Name
+                            </label>
+                            <input class="u-full-width" class="form-control" required type="text" name="vendor"
+                                placeholder="Vendorname" value="" [(ngModel)]="vendorItem.vendor" minlength="1" />
+                        </div>
+
+
+                        <!-- Second row -->
+
+                        <div class="six columns padright">
+                            <label>
+                                Address Line1
+                            </label>
+                            <input class="u-full-width" class="form-control" minlength="1" required type="text"
+                                name="line1" placeholder="Line1" value="" [(ngModel)]="vendorItem.line1" />
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="six columns padright">
+                            <label>
+                                Address Line2
+                            </label>
+                            <input class="u-full-width" class="form-control" type="text" name="line2"
+                                placeholder="Line2" value="" [(ngModel)]="vendorItem.line2" />
+                        </div>
+
+
+
+
+                        <div class="six columns padright">
+                            <label>
+                                Town
+                            </label>
+                            <input class="u-full-width" class="form-control" minlength="1" required type="text"
+                                name="town" placeholder="Town" value="" [(ngModel)]="vendorItem.town" />
+                        </div>
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="six columns padright">
+                            <label>
+                                Post code
+                            </label>
+                            <input class="u-full-width" class="form-control" minlength="1" required type="text"
+                                name="postcode" placeholder="Postcode" value="" [(ngModel)]="vendorItem.postcode" />
+                        </div>
+
+
+
+
+                        <div class="six columns padright">
+                            <label>
+                                Phone Number
+                            </label>
+                            <input class="u-full-width" class="form-control" minlength="1" required type="text"
+                                name="phonenumber" placeholder="Phonenumber" value=""
+                                [(ngModel)]="vendorItem.phonenumber" />
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="twelve-columns padright">
+                            <label>
+                                Email Id
+                            </label>
+                            <input class="u-full-width" class="form-control" minlength="1" required type="text"
+                                name="emailid" placeholder="Emailid" value="" [(ngModel)]="vendorItem.emailid" />
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="six columns padright">
+                            <label>
+                                Country
+                            </label>
+                            <input class="u-full-width" class="form-control" minlength="1" required type="text"
+                                name="country" placeholder="Country" value="" [(ngModel)]="vendorItem.country" />
+                        </div>
+
+
+
+
+                        <div class="six columns padright">
+                            <label>
+                                Contact Person
+                            </label>
+                            <input class="u-full-width" class="form-control" minlength="1" required type="text"
+                                name="contactperson" placeholder="Contactperson" value=""
+                                [(ngModel)]="vendorItem.contactperson" />
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+
+
+
+                    <div class="partensfor">
+                        <button class="bg-primary btn-sm partbut" type="submit" value="Submit" [disabled]="myform.form.invalid">Submit</button>
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+</section>

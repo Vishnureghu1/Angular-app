@@ -1,0 +1,77 @@
+<app-header></app-header>
+
+<head>
+    <!-- <link href="/assets/css/corporate.css" rel="stylesheet"> -->
+</head>
+<section class="background content-wrapper">
+    <div class="fullcontentonly">
+        <div class="container add1">
+            <h1>
+                Update Product
+            </h1>
+        </div>
+        <div class="container">
+
+            <form class="form" (ngSubmit)="Addproduct()" #myform="ngForm" method="POST">
+                <div class="form-group">
+                    <!-- First row -->
+                    <div class="row">
+                        <div class="twelve columns padright">
+                            <label>
+                                Product
+                            </label>
+                            <input class="u-full-width" class="form-control" required type="text" name="name" value=""
+                                [(ngModel)]="productItem.productname" minlength="1" />
+                        </div>
+
+                    </div>
+                    <!-- Second row -->
+                    <div class="row">
+                        <div class="twelve columns padright">
+                            <label>
+                                Qr/Barcode
+                            </label>
+                            <input type="number" class="u-full-width" class="form-control" minlength="1" required type="text"
+                                name="barcode" placeholder="Barcodeorqrcode" value=""
+                                [(ngModel)]="productItem.barcodeorqrcode" />
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="twelve columns padright">
+                            <!-- <label for=""style="font-weight: lighter; margin-right: 10%;">CategoryName</label> -->
+                            <label>
+                                Category
+                            </label>
+                            <select class="u-full-width" class="form-control" name="ccc" id="" required
+                                [(ngModel)]=" productItem.categoryname">
+                                <option *ngFor='let category of categories' [ngValue]=" category.categoryname">
+                                    {{category.categoryname}}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="twelve columns padright">
+                            <label style="font-weight: lighter; margin-right: 10%;">
+                                Product Image
+                            </label>
+                            <input type="file" name="image" required (change)="createFormData($event)" value="" />
+                        </div>
+
+                    </div>
+
+
+
+
+                    <div class="partensfor">
+                        <button class="btn-primary btn-sm partbut" type="submit" value="Submit" [disabled]="myform.form.invalid">Submit</button>
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+</section>

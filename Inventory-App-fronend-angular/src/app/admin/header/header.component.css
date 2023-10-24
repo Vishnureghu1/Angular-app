@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.navbar{
+    position: sticky;
+    
+}
+.sideone{
+    position: fixed;  
+    font-family: "Poppins"; 
+    font-size: 14px;
+}
+
+
+.sidebar{
+    top: 0;
+    bottom:0;
+   height: 90vh;
+    
+}
+.sidebar::-webkit-scrollbar {
+    display: none;
+  }
+  .sidebar{
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  @media screen and (min-width: 1920px) {
+.footer{
+margin-top: 33vh;
+}
+  }
+  

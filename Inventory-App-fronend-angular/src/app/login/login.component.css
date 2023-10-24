@@ -1,0 +1,53 @@
+.text-white{
+  font-size:28px;
+}
+.footer{
+  left:28%;
+}
+.text-start{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.loginform{  
+  margin-top: 10%;
+}
+.form-control.ng-touched.ng-invalid {
+  border:1px solid #D81B60;
+}
+.form-control.ng-touched.ng-valid {
+  border:1px solid rgb(53, 52, 52);
+}
+.change_pass{
+  color:#7b809a;
+  font-size: 14px;
+  padding-left:25%;
+}
+
+@media only screen and (min-device-width:320px) and (max-device-width:425px){
+  .footer{
+      left:0%;
+  }
+}
+@media only screen and (min-device-width:426px) and (max-device-width:768px){
+  .footer{
+      left:22%;
+  }
+  .change_pass{
+      padding-left:40%;
+  
+  }
+}
+.backgroundimage{
+  background-image: url(../../assets/images/loginbkg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  }
+  .logo{
+    display: block;
+    height: 100px;
+    width: 200px;
+    padding-top: 2%;      
+  }
+  .logo.img-responsive {
+    margin: 0 auto;
+}

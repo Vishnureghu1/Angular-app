@@ -1,0 +1,126 @@
+<app-header></app-header>
+
+<head>
+    <!-- <link href="/assets/css/corporate.css" rel="stylesheet"> -->
+</head>
+<section class="background  content-wrapper">
+    <div class="fullcontentonly ">
+        <div class="container add1">
+            <h1>
+                Add Product
+            </h1>
+        </div>
+        <div class="container">
+
+            <form class="form" (ngSubmit)="Addproduct()" #myform="ngForm" method="POST">
+                <div class="form-group">
+                    <!-- First row -->
+                    <div class="row"  >
+                        <div class="twelve columns padright">
+                            <label>
+                                Product
+                            </label>
+                            <input class="u-full-width" class="form-control" required type="text" name="name"
+                                 value="" [(ngModel)]="productItem.productname" minlength="1" />
+                        </div>
+
+                    </div>
+                    <!-- Second row -->
+                    <div class="row"   >
+                        <div class="twelve columns padright">
+                            <label>
+                                Qr/Barcode
+                            </label>
+                            <input type="number" class="u-full-width" class="form-control" minlength="1" required type="text"
+                                name="barcode"  value=""
+                                [(ngModel)]="productItem.barcodeorqrcode" />
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="twelve columns padright">
+                        <label>
+                            Category
+                        </label>
+                        <select  class="u-full-width" name="ccc" id="ccc" required [(ngModel)]=" productItem.categoryname">
+                            <option *ngFor='let category of categories' [ngValue]=" category.categoryname">
+                                {{category.categoryname}}</option>
+                        </select>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="twelve columns padright">
+                        <label>
+                            Category type
+                        </label>
+                        <select  class="u-full-width" name="ccc" id="ccc" required [(ngModel)]="productItem.type" (change)="selectone()">
+                            <option *ngFor='let type of categorytype' [ngValue]="type">
+                               {{type}}</option>
+                        </select>
+                    </div>
+                    </div>
+                    <div class="row" *ngIf='bool==1'>
+                        <div class="twelve columns padright">
+                        <label>
+                            Quantity In <span>{{productItem.attribute}}</span>
+                        </label>
+                        <input type="number" class="u-full-width" class="form-control" minlength="1" required type="number"
+                                name="qtyInattribute"  value=""
+                                [(ngModel)]="productItem.qtyInattribute" />                        
+                    </div>
+                    </div>
+                    <div class="row" *ngIf='bool==2'>
+                        <div class="seven columns padright">
+                        <label>
+                            Quantity
+                        </label>
+                        <input type="number" class="u-full-width" class="form-control" minlength="1" required type="number"
+                                name="qtyInattribute"  value=""
+                                [(ngModel)]="productItem.qtyInattribute" />                        
+                    </div>  
+                    <div class="five columns padright">                  
+                        <label>
+                            Attribute
+                        </label>
+                        <select  class="u-full-width" name="ccc" id="ccc" required [(ngModel)]="productItem.attribute" (change)="selectone()">
+                            <option *ngFor='let types of atrributetype' [ngValue]="types">
+                               {{types}}</option>
+                        </select>                       
+                    </div>
+                </div> 
+                <!-- <div class="row"   > -->
+                    <!-- <div class="twelve columns padright"> -->
+                        <!-- <label> -->
+                            <!-- Price per unit in GBP -->
+                        <!-- </label> -->
+                        <!-- <input type="text" class="u-full-width" class="form-control" minlength="1" required type="text" -->
+                            <!-- name="barcode"  value="" -->
+                            <!-- [(ngModel)]="productItem.pricePerunit" /> -->
+                    <!-- </div> -->
+
+                <!-- </div> -->
+<!-- <div class ="row">{{productItem.attribute}}</div> -->
+                    <div class="row" >
+                        <div class="twelve columns padright">
+                        <label >
+                            Product Image
+                        </label>
+                        <!-- <label for="img" class="btn btn-info">Upload product Image</label>
+               <input   type="file" id="img" name="image" style="display:none"  required (change)="createFormData($event)"
+                     value=""  /> -->
+
+                        <input class="u-full-width" type="file" id="img" name="image" required (change)="createFormData($event)" value="" />
+                    </div>
+                    </div>
+
+                    
+                        <button class="btn-primary btn-sm partbut" style="height: fit-content;" type="submit" [disabled]="myform.form.invalid">Submit</button>
+                 
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+</section>

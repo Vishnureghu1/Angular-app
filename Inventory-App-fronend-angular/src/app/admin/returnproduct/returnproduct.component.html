@@ -1,0 +1,173 @@
+<app-header></app-header>
+<section class=" background content-wrapper">
+  <div class="container newfull">
+    <div class="add1">
+      <h1 style="padding-top: 1%;">
+        Return Product
+      </h1>
+    </div>
+
+    <form (ngSubmit)="addreturn()" class="form" #subform="ngForm">
+      <div class="row">
+        <div class="six columns padright">
+          <label for="">Return Id</label>
+          <input type="number" required class="u-full-width" name="checkout" id="checkout1" placeholder="Invoice Number"
+            value={{randomnumber}} [(ngModel)]="return.returnId" class="form-control">
+        </div>
+        <div class="six columns padright">
+          <label for="">Date</label>
+          <input type="date" style="color: #999393;" (change)=checkDate() required class="u-full-width" name="date"
+            id="date" placeholder="Date" [(ngModel)]="return.newdate" class="form-control">
+        </div>
+
+
+      </div>
+
+
+
+
+      <div class="row">
+        <div class="twelve columns padright">
+          <label for="">Reason for return</label>
+          <textarea required class="u-full-width" name="reason" (keyup)="ghtu()" form="usrform"
+              [(ngModel)]="return.reason" class="form-control"></textarea>
+
+        </div>
+
+      </div>
+    </form>
+
+    <div class="newform">
+
+      <div class="add1">
+        <h1>
+          Product Details
+        </h1>
+      </div>
+
+
+      <div>
+
+        <!-- Form that gets user input -->
+        <form class="form" #myform="ngForm">
+          <div class="form-group">
+            <div class="row">
+              <div class="six columns padright">
+                <label for="">Qr/Barcode</label>
+                <input type="number" (keyup.enter)="somefunction($event)" id="barcodeorqrcode" name="barcodeorqrcode" required
+                  [(ngModel)]="newItem.barcodeorqrcode" placeholder="Scan or type and press enter"  required class="form-control">
+
+              </div>
+              <div class="six columns padright">
+                <label for="">Product Name</label>
+                <input type="string" id="productname" name="productname" value={{neprod.productname}}
+                  [(ngModel)]="newItem.productname"  class="form-control" readonly>
+              </div>
+
+            </div>
+
+            <div class="row">
+              <div class="six columns padright">
+                <label for="">"Category</label>
+                <input type="string" id="Value" name="Value" readonly value={{neprod.categoryname}} [(ngModel)]="newItem.categoryname"
+                    class="form-control">
+              </div>
+
+              <div class="six columns padright">
+                <label for="">Enter the Quantity</label>
+                <input id="qty" type="number" class="u-full-width" name="qty" required [(ngModel)]="newItem.qty"
+                  minlength="1"  class="form-control" value={{neprod.qty}}>
+
+              </div>
+            </div>
+            <div class="btr">
+              <!-- Add button to add record -->
+              <button type="submit" [disabled]="myform.form.invalid || IsForUpdate == true" (click)="AddItem()"
+                class="btn-primary btn-sm partbut" style="position:absolute;right:0;">Add</button>
+              <!-- Update button to submit updated value -->
+              <button type="submit" (click)="UpdateItem()" [disabled]="IsForUpdate == false"
+                class="btn-primary btn-sm partbut" style="position:absolute;right:60px;">Update</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      
+     
+
+    </div>
+
+    <div class=" fullone">
+
+      <div class=''>
+        <div class=''>
+          <div class="add2" style="margin-left:0%; margin-top: -2%;margin-bottom: -2%;">
+            <h1>Products</h1>
+          </div>
+        </div>
+
+        <div class=''>
+          <div class='table-responsive'>
+            <table>
+              <thead>
+                <tr>
+                  <th>
+                    Product
+                  </th>
+                  <th>Barcode/Qrcode</th>
+                  <th>Category</th>
+                  <th>Quantity</th>
+                  <th>Action</th>
+                </tr>
+
+              </thead>
+              <tbody>
+                <tr *ngFor='let data of myItems;let i= index'>
+                  <td>{{data.productname}} </td>
+                  <td> {{data.barcodeorqrcode}} </td>
+                  <td> {{data.categoryname}} </td>
+                  <td> {{data.qty}} </td>
+                  <td>
+                    <button class="btn-sm" (click)="EditItem(i)" style="border:none; margin-right: 2px;">
+                      <span class="fas fa-edit" style="color: #007bff"></span>
+                    </button>
+                    <button class="btn-sm" (click)="DeleteItem(i)" style="border:none">
+                      <span class="fas fa-trash" style="color:red"></span>
+                    </button>
+
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- This is panel footer -->
+    <!-- This is panel footer -->
+
+    <form (ngSubmit)="addreturn()">
+      <div class="subforbut1">
+        <button type="submit" 
+         class="btn-primary btn-sm" style="height: fit-content; font-size: small; font-weight: lighter;"
+          [disabled]="subform.form.invalid || myItems.length==0" name="submit" id="">Submit</button>
+      </div>
+
+    </form>
+
+
+  </div>
+</section>
+
+
+
+
+This is panel Body
+<!-- This is panel Body -->
+<!-- <div class="panel-body" style="text-align: -webkit-center;">   -->
+<!-- <div *ngFor="let data of myItems;let i= index" class="alert alert-info" style="width: 50%;">   -->

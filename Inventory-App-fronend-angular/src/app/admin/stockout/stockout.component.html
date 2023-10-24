@@ -1,0 +1,177 @@
+<app-header></app-header>
+<section class="background content-wrapper">
+<div class="container  newfull">
+  <div class="add1">
+    <h1 >
+      Stock Out 
+    </h1>
+  </div>
+  
+  <form  (ngSubmit)="addstockout()" class="form" #subform="ngForm">
+    <div class="row" >  
+      <div class="six columns padright">
+        <label for="" style="font-style: normal;"> Checkout Id</label>
+        <input type="number" required class="u-full-width" name="checkot" id="checkout"
+          placeholder="Invoice Number" value={{randomnumber}}  [(ngModel)]="stockout.checkoutId" class="form-control">
+      </div>  
+      <div class="six columns padright">
+        <label for="">Date</label>
+        <input type="date" style="color: #999393;" (change)=checkDate() required class="u-full-width" name="date" id="date"
+          placeholder="Invoice Number" [(ngModel)]="stockout.newdate" class="form-control">
+      </div>     
+    </div>
+    </form>
+  
+
+
+  
+
+    <div class="newform" >
+
+    <div class="add1">
+      <h1>
+        Product Details
+      </h1>
+    </div>
+
+
+    <div>
+
+      <!-- Form that gets user input -->
+      <form class="form" #myform="ngForm">
+        <div class="form-group">
+          <div class="row" >
+            <div class="six columns padright">
+              <label for="">Qr/Barcode</label>
+              <input type="number" (keyup.enter)="somefunction($event)" id="barcodeorqrcode" placeholder="Scan or type and press enter" name="barcodeorqrcode" required
+                [(ngModel)]="newItem.barcodeorqrcode" required  class="form-control" class="form-control">
+
+            </div>
+            <div class="six columns padright">
+              <label for="">Product Name</label>
+              <input id="productname" name="productname" value={{neprod.productname}} [(ngModel)]="newItem.productname"
+                 class="form-control" readonly>
+            </div>
+
+          </div>
+
+          <div class="row" >
+            <div class="six columns padright">
+              <label for="">Category</label>
+              <input id="Value" name="Value" readonly value={{neprod.categoryname}} [(ngModel)]="newItem.categoryname"
+                 class="form-control">
+            </div>
+
+            <div class="six columns padright">
+              <label for="">Enter the Quantity</label>
+              <input id="qty" type="number" class="u-full-width" name="qty" required [(ngModel)]="newItem.qty"
+                minlength="1"  class="form-control" value={{neprod.qty}}>
+
+            </div>
+          </div>
+          <!-- <div class="row" > -->
+          <!-- <div class="four columns padright"> -->
+            <!-- <label for="">Enter the Quantity of each unit</label> -->
+            <!-- <input id="qtyInAttribute" type="number" class="u-full-width" name="qtyInAttribute" required [(ngModel)]="newItem.qtyInAttribute" -->
+              <!-- minlength="1"  class="form-control"> -->
+
+          <!-- </div> -->
+          <!-- <div class="two columns padright"> -->
+            <!-- <label for="">Attribute</label> -->
+            <!-- <select [(ngModel)]=" newItem.attribute" class="form-control selectone" name="attribute" id="attribute"> -->
+              <!-- <option [ngValue]="undefined" disabled selected>Select Vendor (optional)  </option> -->
+              <!-- <option *ngFor='let i of attributes' [ngValue]="i.attribute">{{i.attribute}}                      -->
+              <!-- </option> -->
+            <!-- </select> -->
+          <!-- </div> -->
+          <!-- </div> -->
+          <div class="btr">
+            <!-- Add button to add record -->
+            <button type="submit" [disabled]="myform.form.invalid || IsForUpdate == true" (click)="AddItem()"
+              class="btn-primary btn-sm partbut" style="position:absolute;right:0;" >Add</button>
+            <!-- Update button to submit updated value -->
+            <button type="submit" (click)="UpdateItem()" [disabled]="IsForUpdate == false"
+              class="btn-primary btn-sm  partbut" style="position:absolute;right:60px;">Update</button>
+            </div>
+        </div>
+      </form>
+    </div>
+   
+    
+    
+ 
+
+  </div>
+  
+  <div class=" fullone">
+
+    <div >
+      <div >
+        <div class="add2">
+        <h1>Products</h1>
+      </div>
+      </div>
+
+      <div >
+        <div class='table-responsive'>
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  Product
+                </th>
+                <th>Barcode/Qrcode</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>Quantity of each unit</th>
+                <th>Actions</th>
+              </tr>
+
+            </thead>
+            <tbody>
+              <tr *ngFor='let data of myItems;let i= index'>
+                <td>{{data.productname}} </td>
+                <td > {{data.barcodeorqrcode}} </td>
+                <td> {{data.categoryname}} </td>
+                <td> {{data.qty}} </td>
+                <td> {{data.qtyInAttribute}} {{data.attribute}} </td>
+                <td>
+                  <button class="btn-sm"  (click)="EditItem(i)" style="border:none;"
+                   >
+                    <span class="fas fa-edit" style="color: #007bff"></span>
+                  </button>
+                  <button class="btn-sm" (click)="DeleteItem(i)" style="border:none" >
+                    <span class="fas fa-trash" style="color:red"></span>
+                  </button>
+
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+          
+         
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- This is panel footer -->
+  <!-- This is panel footer -->
+
+<form (ngSubmit)="addstockout()">
+ <div class="subforbut1">
+    <button  type="submit" [disabled]="subform.form.invalid || myItems.length==0" 
+     class="btn-primary btn-sm" style="height: fit-content; font-size: small; font-weight: lighter;" id="">submit</button>
+    </div>
+
+  </form>
+
+
+</div>
+</section>
+
+

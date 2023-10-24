@@ -1,0 +1,75 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/skeleton-framework/1.1.1/skeleton.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.background{
+    
+    background-size: cover;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+button{
+    border-radius: 5px;
+    font-size:12px;
+}
+
+.partbut{
+   float:right;   
+    color:white;
+    height: fit-content;    
+}
+
+   
+
+.add1 h1{
+    font-size: 22px;
+    font-family: 'Poppins';
+    letter-spacing: 4px;
+    padding-left: 4px;
+   
+}
+
+input.ng-pristine {
+    border-color:#C3C6CD;
+}
+input{
+    font-size: small;
+}
+
+
+.fullcontentonly{ 
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+    position: relative;
+    width:60%;
+    background-color: whitesmoke;
+     box-shadow: 0 0 5px gray;
+    font-family: 'Poppins';    
+    top:2vw;
+    padding-top: 10px; 
+    padding-bottom:25px; 
+    padding-left: 25px;
+     padding-right: 25px; 
+     font-size: 12px;
+    border-radius:10px;
+}
+.row{
+padding-top: 10px;
+}
+button{
+    font-weight: lighter;
+    font-family: 'Poppins';
+}
+label{
+    font-style: normal;
+    font-weight: lighter !important;
+    font-family: 'Poppins';
+    padding-left: 3px;
+}
+input{
+    height: 30px;
+}
+select{
+    height: 30px;
+}
